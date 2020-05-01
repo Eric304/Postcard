@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="PostCard.css">
+</head>
+<body>
+
+<div id="root"></div>
+<script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+
+<script type="text/babel">
+
+const rootElement = document.getElementById('root');
+
+const props1 = {
+	children: 'From: Eric',
+	className: 'container1',  
+};
+
+const props2 = {
+	children: 'To: Yvone',
+	className: 'container2',  
+};
+
+const props3 = {
+	children: 'Message: Espero que mi tarea este bien!',
+	className: 'container3',  
+};
+
+const Postcard = (props) => {
+console.log(props);
+return (
+<div id="card">
+<figure>
+<img src="paisaje.jpeg"/>
+<figcaption id="location"> Entrada a Teotihuacán</figcaption>
+</figure>
+<div id="props1">{props.children}</div>
+</div>
+)
+};
+
+Postcard.propTypes = {
+	array: PropTypes.string,
+};
+
+
+const elementJSX = (
+	<Postcard >	
+		<div {...props1}/>
+		<div {...props2}/>
+		<div {...props3}/>
+	</Postcard>	
+);
+
+ReactDOM.render(elementJSX, rootElement);
+
+</script>
+</body>
+</html>
+
+
